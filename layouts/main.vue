@@ -1,7 +1,10 @@
 <template>
-    <NuxtLayout name="main">
-      <NuxtPage />
-    </NuxtLayout>
+    <TheHeader />
+    <main>
+        <slot></slot>
+    </main>
+   
+    <TheFooter />
 </template>
 <script setup>
 useSeoMeta({

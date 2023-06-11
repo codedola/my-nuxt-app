@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@import 'components/button.scss';
+@import 'components/input.scss';
 .container {
   @apply max-w-[1440px] mx-auto px-2 md:px-3 xl:px-4
 }

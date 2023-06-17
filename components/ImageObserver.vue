@@ -14,10 +14,15 @@ defineProps({
     type: String
   }
 })
-onMounted(loadImage)
-onMounted(loadImage)
-onMounted(loadImage)
-function loadImage() {
-  console.log('load Image run')
+onMounted(() => {
+  registerObserver()
+})
+
+function loadImage(image) {
+  console.log('load Image run', image)
+}
+function registerObserver(selector) {
+  const elements = document.querySelectorAll(selector)
+  console.log('elements = ', elements)
 }
 </script>

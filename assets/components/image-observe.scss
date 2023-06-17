@@ -1,0 +1,10 @@
+img.lazy-load {
+    color: transparent;
+    font-size: 0;
+    text-indent: -9999px;
+    opacity: 100;
+    transition: all 400ms ease-in-out;
+}
+img.lazy-load:not([src]) {
+    opacity: 0;
+}

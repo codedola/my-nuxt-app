@@ -1,7 +1,14 @@
 <template>
   <article class="bg-white border border-gray-200 rounded-lg shadow-md ">
-        <NuxtLink href="/posts/post-detail-abc">
-            <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="post-detail-abc">
+        <NuxtLink href="/posts/post-detail-abc" class="block">
+            <div class="aspect-square">
+                <div class="flex items-center h-full">
+                     <ImageObserver 
+                        src="https://flowbite.com/docs/images/blog/image-1.jpg" 
+                        alt="image" 
+                    />
+                </div>
+            </div>
         </NuxtLink>
         <div class="p-5">
              <NuxtLink href="/posts/post-detail-abc">

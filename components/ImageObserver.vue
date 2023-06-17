@@ -1,8 +1,8 @@
 <template>
-   <img :data-src="src" :data-src-mb="srcMb || src" :alt="alt" class="lazy-load" />
+   <img ref="imageLazy" :data-src="src" :data-src-mb="srcMb || src" :alt="alt" class="lazy-load" />
 </template>
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 defineProps({
   src: {
     type: String
@@ -14,15 +14,29 @@ defineProps({
     type: String
   }
 })
-onMounted(() => {
-  registerObserver()
-})
+const imageLazy = ref(null);
 
+onMounted(() => {
+  registerObserverImage()
+})
 function loadImage(image) {
-  console.log('load Image run', image)
+    const url = image.getAttribute('data-src')
+    image.setAttribute('src', url)
 }
-function registerObserver(selector) {
-  const elements = document.querySelectorAll(selector)
-  console.log('elements = ', elements)
+function registerObserverImage() {
+  if ('IntersectionObserver' in window) {
+    let observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const { isIntersecting, target } = entry
+            if (isIntersecting) {
+              loadImage(imageLazy.value)
+              observer.unobserve(imageLazy.value)
+            }
+        })
+      })
+     observer.observe(imageLazy.value)
+  } else {
+    loadImage(imageLazy.value)
+  }
 }
 </script>

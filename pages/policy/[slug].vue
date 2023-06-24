@@ -16,27 +16,21 @@
   </div>
 </template>
 <script setup>
-import { computed } from 'vue'
-  const route = useRoute()
-  const props = defineProps({
-    policies: {
-      type: Array,
-      default: () => []
-    }
-  })
+import { computed, inject } from 'vue'
+const { params } = useRoute()
+
+const policies = inject('policies')
+const staticPolicies = inject('staticPolicies')
+const reactivePolicies = inject('reactivePolicies')
+
+console.log('policies ref = ', policies)
+console.log('policies reactive = ', reactivePolicies)
+console.log('policies static  = ', staticPolicies)
+
 const policy = computed(() => {
-  const policy =  props.policies.find((policy) => {
-    return policy.slug ===  route.params.slug
+  return  policies.value.find((policy) => {
+    return policy.slug ===  params.slug
   })
-  return policy || null
+
 })
-
-
-  // import { reactive } from 'vue'
-  // const title = reactive({
-  //   'chinh-sach-thanh-toan': ' Chính sách thanh toán',
-  //   'chinh-sach-van-chuyen': 'Chính sách vận chuyển',
-  //   'chinh-sach-tich-diem': 'Chính sách tích điểm',
-  //   'chinh-sach-bao-mat-thong-tin': 'Chính sách bảo mật thông tin',
-  // })
 </script>

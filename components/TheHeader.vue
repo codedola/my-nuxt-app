@@ -4,6 +4,7 @@
       <nav class="flex items-center justify-center space-x-2">
         <NuxtLink to="/" class="px-4 py-2 bg-gray-200 rounded">Homepage</NuxtLink>
         <NuxtLink to="/about" class="px-4 py-2 bg-gray-200 rounded">About</NuxtLink>
+        <NuxtLink to="/posts" class="px-4 py-2 bg-gray-200 rounded">Posts</NuxtLink>
         <NuxtLink to="/policy" class="px-4 py-2 bg-gray-200 rounded">Policy</NuxtLink>
       </nav>
     </div>

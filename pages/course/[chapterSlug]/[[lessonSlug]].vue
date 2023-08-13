@@ -1,5 +1,6 @@
 <template lang="">
-  <div>chapter {{ $route.params }}</div>
+  <div>Chapter slug {{ $route.params.chapterSlug }}</div>
+  <div>Lesson slug {{ $route.params.lessonSlug }}</div>
 </template>
 <script>
 export default {};

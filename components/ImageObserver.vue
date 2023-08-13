@@ -1,5 +1,14 @@
 <template>
-   <img ref="imageLazy" :data-src="src" :data-src-mb="srcMb || src" :alt="alt" class="lazy-load" />
+   <img 
+      ref="imageLazy" 
+      :width="width" 
+      :height="height" 
+      :data-src="src" 
+      :data-src-mb="srcMb || src" 
+      :alt="alt" 
+      :src="src"
+      class="lazy-load" 
+   />
 </template>
 <script setup>
 import { onMounted, ref } from 'vue'
@@ -12,6 +21,14 @@ defineProps({
   },
   alt: {
     type: String
+  },
+  width: {
+    type: String,
+    default:''
+  },
+  height: {
+    type: String,
+    default:''
   }
 })
 const imageLazy = ref(null);
